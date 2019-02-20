@@ -3,11 +3,16 @@ import Header from "./Header"
 import Flex from "../Flex/Flex"
 import { graphql } from "gatsby"
 import Sidebar from "./Sidebar"
-import '../../styles/main.css'
+import "../../styles/main.css"
+import Copyright from "../Copyright";
 
-export default class Layout extends Component<any, any> {
-    
+class Props {
+  enableSidebar?: boolean = false
+}
+
+export default class Layout extends Component<Props, any> {
   render() {
+    const { enableSidebar } = this.props
     return (
       <div
         style={{
@@ -15,33 +20,33 @@ export default class Layout extends Component<any, any> {
           height: "100%"
         }}
       >
-        {/* <Header /> */}
+        <Header />
 
         <Flex>
+          {enableSidebar && (
+            <div
+              style={{
+                boxSizing: "border-box",
+                width: "300px",
+                height: "100%"
+              }}
+            >
+              <Sidebar />
+            </div>
+          )}
           <div
             style={{
               boxSizing: "border-box",
-              width: "300px",
-              height: "100%"
-              // border: "1px solid blue"
-            }}
-          >
-            <Sidebar />
-          </div>
-          <div
-            style={{
-              boxSizing: "border-box",
-              width: "calc( 100% - 300px )",
+              width: enableSidebar ? "calc( 100% - 300px )" : "100%",
               height: "100%",
               padding: "20px"
-              // border: "1px solid red"
             }}
           >
             {this.props.children}
           </div>
         </Flex>
 
-        {/* footer */}
+        <Copyright />
       </div>
     )
   }

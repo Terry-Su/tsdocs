@@ -87,6 +87,7 @@ exports.createPages = ( { graphql, boundActionCreators } ) => {
       }
     ` ).then( result => {
                 result.data.allMarkdownRemark.edges.forEach( ( { node } ) => {
+                    console.log( node.fields.slug )
                     createPage( {
                         path     : node.fields.slug,
                         component: path.resolve( `./src/templates/DocTemplate.tsx` ),
@@ -96,6 +97,13 @@ exports.createPages = ( { graphql, boundActionCreators } ) => {
                         },
                     } )
                 } )
+
+                // create home page
+                createPage( {
+                  path     : '/',
+                  component: path.resolve( `./src/pages/Home/Home.tsx` )
+                } )
+
                 resolve()
             } )
     } )

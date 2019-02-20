@@ -4,6 +4,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-typescript',
+    `gatsby-plugin-glamor`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

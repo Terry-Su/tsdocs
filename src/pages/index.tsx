@@ -6,9 +6,7 @@ import Home from "./Home/Home";
 
 export default ({ data }) => {
   const { title } = data.site.siteMetadata
-  return <Layout>
-    <h1>Welcome to {title}!</h1>
-  </Layout>
+  return <Home />
 }
 
 export const query = graphql`
