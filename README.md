@@ -1,2 +1,2 @@
 # tsdocs
-A blazing static docs website boilerplate
+A highway to build static docs website
