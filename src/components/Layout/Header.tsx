@@ -1,10 +1,11 @@
 import React, { Component } from "react"
 import Flex from "../Flex/Flex";
 import { Link } from "gatsby"
+import { URL_FOO, URL_BAR } from "@/constants/urls";
 
 const links = [
-  { label: 'Foo', to: '/docs/foo' },
-  { label: 'Bar', to: '/docs/bar' },
+  { label: 'Foo', to: URL_FOO },
+  { label: 'Bar', to: URL_BAR },
 ]
 
 export default class Header extends Component {

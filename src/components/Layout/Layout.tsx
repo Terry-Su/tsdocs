@@ -2,17 +2,18 @@ import React, { Component } from "react"
 import Header from "./Header"
 import Flex from "../Flex/Flex"
 import { graphql } from "gatsby"
-import Sidebar from "./Sidebar"
+import Sidebar from "./Sidebar/Sidebar"
 import "../../styles/main.css"
 import Copyright from "../Copyright";
 
 class Props {
   enableSidebar?: boolean = false
+  categoryKey?: string
 }
 
 export default class Layout extends Component<Props, any> {
   render() {
-    const { enableSidebar } = this.props
+    const { enableSidebar, categoryKey } = this.props
     return (
       <div
         style={{
@@ -31,7 +32,7 @@ export default class Layout extends Component<Props, any> {
                 height: "100%"
               }}
             >
-              <Sidebar />
+              <Sidebar categoryKey={categoryKey} />
             </div>
           )}
           <div

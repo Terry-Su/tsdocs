@@ -5,6 +5,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
     `gatsby-plugin-glamor`,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

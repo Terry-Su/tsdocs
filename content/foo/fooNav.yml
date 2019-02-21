@@ -1,0 +1,11 @@
+- label: A
+  foldable: true
+  href: /foo/A
+  items:
+    - label: BA
+      href: /foo/A/BA
+    - label: BB
+      foldable: true
+      items:
+        - label: BBA
+        - label: BBB 
