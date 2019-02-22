@@ -1,5 +1,6 @@
-import React, { Component } from "react"
-import DefaultProps from "@/utils/DefaultProps"
+import React, { Component } from 'react'
+
+import DefaultProps from '@/utils/DefaultProps'
 
 interface Heading {
   value: string
@@ -49,8 +50,6 @@ export default class TableOfContents extends Component<Props, State> {
         }
       }
     }
-
-    console.log(root.items)
 
     return root.items
   }

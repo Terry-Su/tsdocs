@@ -1,26 +1,95 @@
-import React, { Component } from "react"
-import Flex from "../Flex/Flex";
-import { Link } from "gatsby"
-import { URL_FOO, URL_BAR } from "@/constants/urls";
+import { Link } from 'gatsby'
+import React, { Component } from 'react'
 
-const links = [
-  { label: 'Foo', to: URL_FOO },
-  { label: 'Bar', to: URL_BAR },
-]
+import { URL_BAR, URL_FOO, URL_GITHUB, URL_TSDOCS } from '@/constants/urls'
+import { CLASS_EMPTY_LINK } from '@/styles/classNames'
+import { COLOR_PRIMARY_TEXT_UNDER_LIGHT } from '@/styles/colors'
+import { STYLE_NAV_HEIGHT } from '@/styles/styles'
+import { jsx } from '@emotion/core'
 
-export default class Header extends Component {
+import Flex from '../Flex/Flex'
+import OuterLinkIcon from '../svg/OuterLinkIcon'
+
+const links = [{ label: "Foo", to: URL_FOO }, { label: "Bar", to: URL_BAR }]
+
+class State {}
+
+export default class Header extends Component<any, State> {
   render() {
-    return <div style={{
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      height: '62px',
-    }}>
-      <Link to='/'><h2>Title</h2></Link>
+    const isHomePage = location.pathname === "/"
+    return (
+      <div
+        style={{
+          boxSizing: "border-box",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          height: `${STYLE_NAV_HEIGHT}px`,
+          padding: '0 80px',
+          background: "white",
+          ...(isHomePage
+            ? {}
+            : {
+                borderBottom: "1px solid #e8e8e8"
+              })
+        }}
+      >
+        <Link className={CLASS_EMPTY_LINK} to="/">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <img src="/svg/ts.svg" height="24px" />
+            <span
+              style={{
+                margin: "0 0 0 10px",
+                fontSize: "24px",
+                fontWeight: "bold",
+                color: COLOR_PRIMARY_TEXT_UNDER_LIGHT
+              }}
+            >
+              TSDocs
+            </span>
+          </div>
+        </Link>
 
-      {
-        links.map( (link, index) => <Link to={ link.to } key={index}><span>{ link.label }</span></Link> )
-      }
-    </div>
+        <div>
+          {links.map((link, index) => (
+            <Link className={CLASS_EMPTY_LINK} key={index} to={link.to}>
+              <span
+                css={{
+                  margin: '0 50px 0 0',
+                  color:
+                    location.pathname.split("/")[1] === link.to.split("/")[1]
+                      ? "#292929"
+                      : "#757575",
+                  "&:hover": {
+                    color: "#292929"
+                  }
+                }}
+              >
+                {link.label}
+              </span>
+            </Link>
+          ))}
+          <a
+            className={CLASS_EMPTY_LINK}
+            css={{
+              color: "#757575",
+              "&:hover": {
+                color: "#292929"
+              },
+              cursor: "pointer"
+            }}
+            href={URL_TSDOCS}
+          >
+            Github
+            <OuterLinkIcon />
+          </a>
+        </div>
+      </div>
+    )
   }
 }

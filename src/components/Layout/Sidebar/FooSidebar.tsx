@@ -1,7 +1,8 @@
-import React, { Component } from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
-import Flex from "@/components/Flex/Flex";
-import Category from "@/components/Category/Category";
+import { graphql, Link, StaticQuery } from 'gatsby'
+import React, { Component } from 'react'
+
+import Category from '@/components/Category/Category'
+import Flex from '@/components/Flex/Flex'
 
 class Props {
 }
@@ -9,6 +10,8 @@ class Props {
 class State {
   
 }
+
+
 
 export default class FooSidebar extends Component<Props, State> {
   render() {
@@ -21,13 +24,13 @@ export default class FooSidebar extends Component<Props, State> {
                 node {
                   label
                   foldable
-                  href
                   items {
                     label
                     foldable
                     href
                     items {
                       label
+                      href
                     }
                   }
                 }
@@ -40,14 +43,13 @@ export default class FooSidebar extends Component<Props, State> {
           direction="column"
           halign="flex-start"
           style={{
-            background: "#f7f7f7"
+            // background: "#f7f7f7"
           }}
         >
           <Category category={ data.allFooNavYaml.edges[ 0 ].node }/>
         </Flex>
         } }
-      >
-      </StaticQuery>
+      />
     )
   }
 }
