@@ -5,6 +5,7 @@ import Category from '@/components/Category/Category'
 import Flex from '@/components/Flex/Flex'
 
 class Props {
+  slug?: string
 }
 
 class State {
@@ -15,6 +16,7 @@ class State {
 
 export default class FooSidebar extends Component<Props, State> {
   render() {
+    const { slug } = this.props
     return (
       <StaticQuery
         query={graphql`
@@ -46,7 +48,7 @@ export default class FooSidebar extends Component<Props, State> {
             // background: "#f7f7f7"
           }}
         >
-          <Category category={ data.allFooNavYaml.edges[ 0 ].node }/>
+          <Category category={ data.allFooNavYaml.edges[ 0 ].node } slug={ slug }/>
         </Flex>
         } }
       />

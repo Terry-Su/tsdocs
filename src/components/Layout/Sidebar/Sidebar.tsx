@@ -8,13 +8,14 @@ import FooSidebar from './FooSidebar'
 
 class Props extends DefaultProps {
   categoryKey?: string
+  slug?: string
 }
 
 class State {}
 
 export default class Sidebar extends Component<Props, State> {
   render() {
-    const { categoryKey } = this.props
-    return <FooSidebar />
+    const { categoryKey, slug } = this.props
+    return <FooSidebar slug={slug} />
   }
 }

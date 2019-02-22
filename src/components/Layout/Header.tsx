@@ -5,18 +5,23 @@ import { URL_BAR, URL_FOO, URL_GITHUB, URL_TSDOCS } from '@/constants/urls'
 import { CLASS_EMPTY_LINK } from '@/styles/classNames'
 import { COLOR_PRIMARY_TEXT_UNDER_LIGHT } from '@/styles/colors'
 import { STYLE_NAV_HEIGHT } from '@/styles/styles'
-import { jsx } from '@emotion/core'
+import { css, jsx } from '@emotion/core'
 
 import Flex from '../Flex/Flex'
 import OuterLinkIcon from '../svg/OuterLinkIcon'
 
 const links = [{ label: "Foo", to: URL_FOO }, { label: "Bar", to: URL_BAR }]
 
+class Props {
+  slug?: string
+}
+
 class State {}
 
-export default class Header extends Component<any, State> {
+export default class Header extends Component<Props, State> {
   render() {
-    const isHomePage = location.pathname === "/"
+    const { slug } = this.props
+    const isHomePage = ! slug
     return (
       <div
         style={{
@@ -59,16 +64,13 @@ export default class Header extends Component<any, State> {
           {links.map((link, index) => (
             <Link className={CLASS_EMPTY_LINK} key={index} to={link.to}>
               <span
-                css={{
-                  margin: '0 50px 0 0',
-                  color:
-                    location.pathname.split("/")[1] === link.to.split("/")[1]
-                      ? "#292929"
-                      : "#757575",
-                  "&:hover": {
-                    color: "#292929"
-                  }
-                }}
+                css={css`
+                margin: 0 50px 0 0;
+                ${ slug === `${link.to}/` ? 'color: #111;' : 'color: #757575;' }
+                &:hover: {
+                  color: #292929;
+                }
+                `}
               >
                 {link.label}
               </span>

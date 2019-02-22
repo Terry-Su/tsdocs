@@ -14,11 +14,12 @@ import Sidebar from './Sidebar/Sidebar'
 class Props {
   enableSidebar?: boolean = false
   categoryKey?: string
+  slug?: string
 }
 
 export default class Layout extends Component<Props, any> {
   render() {
-    const { enableSidebar, categoryKey } = this.props
+    const { enableSidebar, categoryKey, slug } = this.props
     return (
       <div
         style={{
@@ -26,7 +27,7 @@ export default class Layout extends Component<Props, any> {
           height: "100%",
         }}
       >
-        <Header />
+        <Header slug={slug}/>
 
         <Flex
           height={ `calc( 100% - ${STYLE_NAV_HEIGHT}px )` }
@@ -43,7 +44,7 @@ export default class Layout extends Component<Props, any> {
                 borderRight: '1px solid #e8e8e8'
               }}
             >
-              <Sidebar categoryKey={categoryKey} />
+              <Sidebar categoryKey={categoryKey} slug={slug} />
             </div>
           )}
           <div

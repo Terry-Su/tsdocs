@@ -9,7 +9,8 @@ import { navigate } from '@reach/router'
 class Props extends DefaultProps {
   category: CategoryType
   level: number
-  paddingLeft: number
+  paddingLeft?: number
+  slug?: string
 }
 
 class State {
@@ -74,11 +75,11 @@ export default class Category extends Component<Props, State> {
 
   render() {
     const { category, level = 1 } =  this.props
-    let { paddingLeft = BASIC_PADDING } =  this.props
+    let { paddingLeft = BASIC_PADDING, slug } =  this.props
     const { foldable = false, folded = false, allFolded = false, href } =  category
     const { label, items = [] } = category
     const { isExpanding } = this
-    const isActiveItem = href === location.pathname
+    const isActiveItem = slug === `${href}/`
 
     if ( level > 2 ) {
       paddingLeft = paddingLeft + 20
@@ -96,7 +97,7 @@ export default class Category extends Component<Props, State> {
       margin: 5px 0 0 0;
       padding: 0 0 0 ${ paddingLeft }px;
       font-size: 16px;
-      color: #1a1a1a;
+      color: #343;
       cursor: pointer;
 
       &:hover {
@@ -127,7 +128,7 @@ export default class Category extends Component<Props, State> {
       </div>
 
       {
-        this.isExpanding && items && items.map( (item, index) => <Category key={index} category={ item } level={ level + 1 } paddingLeft={ paddingLeft }/> )
+        this.isExpanding && items && items.map( (item, index) => <Category key={index} category={ item } level={ level + 1 } paddingLeft={ paddingLeft } slug={slug}/> )
       }
     </div>
   }

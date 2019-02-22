@@ -23,11 +23,12 @@ export default class DocTemplate extends Component<Props, State> {
 
   render() {
     const { markdownRemark } = this.props.data
-    const { html, frontmatter, headings } = markdownRemark
+    const { html, frontmatter, headings, fields } = markdownRemark
     const { title, categoryKey } = frontmatter
+    const { slug } =fields
 
     return (
-      <Layout enableSidebar={true} categoryKey={categoryKey}>
+      <Layout enableSidebar={true} categoryKey={categoryKey} slug={ slug }>
         <div
           css={css`
             box-sizing: border-box;
@@ -80,6 +81,9 @@ export const query = graphql`
       headings {
         value
         depth
+      }
+      fields {
+        slug
       }
     }
   }
