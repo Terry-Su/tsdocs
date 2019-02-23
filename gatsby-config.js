@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix  : '/tsdocs-site',
   siteMetadata: {
     title: `TSDocs`,
   },

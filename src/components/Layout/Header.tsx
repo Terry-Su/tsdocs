@@ -46,7 +46,7 @@ export default class Header extends Component<Props, State> {
               alignItems: "center",
             }}
           >
-            <img src="/svg/ts.svg" height="24px" />
+            <img src="./svg/ts.svg" height="24px" />
             <span
               style={{
                 margin: "0 0 0 10px",

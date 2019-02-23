@@ -20,7 +20,7 @@ export default class Home extends Component<Props, State> {
             placeItems: "center",
             width: "100%",
             height: "100%",
-            background: "no-repeat center / cover url('/images/books.jpg')"
+            background: "no-repeat center / cover url('./images/books.jpg')"
           }}
         >
           <div

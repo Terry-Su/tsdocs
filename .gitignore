@@ -16,3 +16,7 @@ bundle.js
 
 # gatsby
 .cache
+
+
+# site
+tsdocs-site

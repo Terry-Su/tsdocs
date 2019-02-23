@@ -1,14 +1,13 @@
 - label: A
   foldable: true
-  # href: /foo/A
   items:
     - label: BA
-      href: /foo/A/BA
+      href: ./foo/A/BA
     - label: BB
-      href: /foo/A/BB
+      href: ./foo/A/BB
       foldable: true
       items:
         - label: BBA
-          href: /foo/A/BB/BBA
+          href: ./foo/A/BB/BBA
         - label: BBB 
-          href: /foo/A/BB/BBB
+          href: ./foo/A/BB/BBB
