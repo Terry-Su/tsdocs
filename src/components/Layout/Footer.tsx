@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { URL_TSDOCS } from '@/constants/urls'
 import { CLASS_EMPTY_LINK } from '@/styles/classNames'
 import { COLOR_PRIMARY_DARK_BACKGROUND, COLOR_PRIMARY_TEXT_UNDER_DARK } from '@/styles/colors'
 
@@ -22,7 +23,7 @@ export default class Footer extends Component<Props, State> {
       color: 'rgba(255, 255, 255, 0.5)'
     }}>
       <span>
-      Built with <a className={CLASS_EMPTY_LINK} href="/" style={{
+      Built with <a className={CLASS_EMPTY_LINK} href={ URL_TSDOCS } style={{
         color: COLOR_PRIMARY_TEXT_UNDER_DARK,
       }}>TSDOCS</a>
       </span>

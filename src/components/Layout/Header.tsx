@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React, { Component } from 'react'
 
-import { URL_BAR, URL_FOO, URL_GITHUB, URL_TSDOCS } from '@/constants/urls'
+import { URL_BAR, URL_FOO, URL_LOGO, URL_TSDOCS } from '@/constants/urls'
 import { CLASS_EMPTY_LINK } from '@/styles/classNames'
 import { COLOR_PRIMARY_TEXT_UNDER_LIGHT } from '@/styles/colors'
 import { STYLE_NAV_HEIGHT } from '@/styles/styles'
@@ -46,7 +46,8 @@ export default class Header extends Component<Props, State> {
               alignItems: "center",
             }}
           >
-            <img src="./svg/ts.svg" height="24px" />
+            {/* <img src="/svg/ts.svg" height="24px" /> */}
+            <img src={ URL_LOGO } height="24px" />
             <span
               style={{
                 margin: "0 0 0 10px",

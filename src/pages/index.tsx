@@ -1,8 +1,8 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout/Layout";
-import { Link, Router } from "@reach/router"
-import Home from "./Home/Home";
+import { graphql } from 'gatsby'
+import React from 'react'
+
+import Layout from '../components/Layout/Layout'
+import Home from './Home/Home'
 
 export default ({ data }) => {
   const { title } = data.site.siteMetadata
