@@ -1,5 +1,6 @@
-import React, { Component } from "react"
-import DefaultProps from "@/utils/DefaultProps";
+import React, { Component } from 'react'
+
+import DefaultProps from '@/utils/DefaultProps'
 
 class Props extends DefaultProps {
 

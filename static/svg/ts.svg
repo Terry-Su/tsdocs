@@ -5,10 +5,11 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="ts" transform="translate(-67.000000, -14.000000)" fill="#1BC2FA">
-            <rect id="Rectangle" transform="translate(176.000000, 86.000000) rotate(15.000000) translate(-176.000000, -86.000000) " x="146" y="82" width="60" height="8"></rect>
-            <text id="S" transform="translate(169.101498, 80.328381) rotate(-270.000000) translate(-169.101498, -80.328381) " font-family="Roboto-Thin, Roboto" font-size="288" font-style="condensed" font-weight="300">
-                <tspan x="89.4298793" y="178.828381">S</tspan>
+        <g id="ts" transform="translate(-67.000000, -33.000000)">
+            <rect id="Rectangle-2" fill-opacity="0" fill="#D8D8D8" x="68" y="1" width="210" height="210"></rect>
+            <rect id="Rectangle" fill="#1BC2FA" transform="translate(176.000000, 105.000000) rotate(15.000000) translate(-176.000000, -105.000000) " x="146" y="101" width="60" height="8"></rect>
+            <text id="S" transform="translate(169.101498, 99.328381) rotate(-270.000000) translate(-169.101498, -99.328381) " font-family="Roboto-Thin, Roboto" font-size="288" font-style="condensed" font-weight="300" fill="#1BC2FA">
+                <tspan x="89.4298793" y="197.828381">S</tspan>
             </text>
         </g>
     </g>

@@ -47,7 +47,7 @@ export default class Header extends Component<Props, State> {
             }}
           >
             {/* <img src="/svg/ts.svg" height="24px" /> */}
-            <img src={ URL_LOGO } height="24px" />
+            <img src={ URL_LOGO } width="36px" height="24px" />
             <span
               style={{
                 margin: "0 0 0 10px",

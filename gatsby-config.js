@@ -4,6 +4,7 @@ module.exports = {
     title: `TSDocs`,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     `gatsby-plugin-emotion`,
     `gatsby-transformer-yaml`,

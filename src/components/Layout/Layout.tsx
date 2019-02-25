@@ -7,6 +7,7 @@ import { COLOR_PRIMARY_DARK_BACKGROUND } from '@/styles/colors'
 import { STYLE_NAV_HEIGHT, STYLE_SIDEBAR_WIDTH } from '@/styles/styles'
 
 import Flex from '../Flex/Flex'
+import HeadHelmet from '../HeadHelmet'
 import Footer from './Footer'
 import Header from './Header'
 import Sidebar from './Sidebar/Sidebar'
@@ -27,6 +28,7 @@ export default class Layout extends Component<Props, any> {
           height: "100%",
         }}
       >
+        <HeadHelmet />
         <Header slug={slug}/>
 
         <Flex
