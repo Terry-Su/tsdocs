@@ -1,0 +1,6 @@
+- label: 全部
+  items: 
+    - label: 苹果
+      href: /apple
+    - label: Banana
+      href: /banana

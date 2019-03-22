@@ -1,0 +1,6 @@
+- label: All
+  items: 
+    - label: Apple
+      href: /cn/apple
+    - label: Banana
+      href: /cn/banana

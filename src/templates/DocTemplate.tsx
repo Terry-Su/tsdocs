@@ -3,10 +3,10 @@ import { graphql } from 'gatsby'
 import Prism from 'prismjs'
 import React, { Component } from 'react'
 
+import { CategoryType } from '@/__typings__/Category'
 import Layout from '@/components/Layout/Layout'
 import markdownCSS from '@/styles/emotion/markdown'
 import { STYLE_SIDEBAR_WIDTH } from '@/styles/styles'
-import { CategoryType } from '@/typings/Category'
 import DefaultProps from '@/utils/DefaultProps'
 import { css } from '@emotion/core'
 
@@ -23,7 +23,7 @@ export default class DocTemplate extends Component<Props, State> {
 
   render() {
     const { markdownRemark } = this.props.data
-    const { html, frontmatter, headings, fields } = markdownRemark
+    const { html, frontmatter={}, headings, fields } = markdownRemark
     const { title, categoryKey } = frontmatter
     const { slug } =fields
 
@@ -74,10 +74,6 @@ export const query = graphql`
   query PostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      frontmatter {
-        title
-        categoryKey
-      }
       headings {
         value
         depth

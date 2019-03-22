@@ -1,0 +1,1 @@
+export const CATEGORY_FOLDER_NAME = '.category'

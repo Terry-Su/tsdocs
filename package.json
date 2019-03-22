@@ -1,7 +1,7 @@
 {
   "name": "tsdocs",
   "scripts": {
-    "develop": "gatsby develop",
+    "develop": "cross-env TS_NODE_PROJECT=tsconfig.node.json node -r ts-node/register node_modules/gatsby/dist/bin/gatsby.js develop",
     "start": "npm run develop",
     "build": "gatsby build --prefix-paths",
     "build-site": "gatsby build --prefix-paths",
@@ -22,6 +22,7 @@
     "@emotion/styled": "^10.0.7",
     "@types/node": "^10.12.18",
     "browser-sync": "^2.26.3",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "eslint": "^5.11.0",
     "fs-extra": "^7.0.1",
@@ -35,6 +36,7 @@
     "gatsby-transformer-remark": "^2.1.17",
     "gatsby-transformer-yaml": "^2.1.8",
     "http-server": "^0.11.1",
+    "js-yaml": "^3.13.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "prismjs": "^1.15.0",
@@ -44,6 +46,7 @@
     "style-loader": "^0.23.1",
     "trash": "^4.3.0",
     "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.8.0",
     "typescript": "^3.2.2",
     "typescript-eslint-parser": "^21.0.2"
   },

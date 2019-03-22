@@ -1,8 +1,8 @@
 import { navigate } from 'gatsby'
 import React, { Component } from 'react'
 
+import { CategoryType } from '@/__typings__/Category'
 import { COLOR_PRIMARY_TEXT_UNDER_DARK } from '@/styles/colors'
-import { CategoryType } from '@/typings/Category'
 import DefaultProps from '@/utils/DefaultProps'
 import { css, jsx } from '@emotion/core'
 
