@@ -1,0 +1,8 @@
+- label: Category1
+  href: /category1
+  foldable: true
+  items:
+    - label: Sub-Category1
+      href: /sub-category1
+- label: Category2
+  href: /category2

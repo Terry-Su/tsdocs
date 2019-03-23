@@ -29,8 +29,8 @@ export default class Header extends Component<Props, State> {
     const { rootPath } = this.props.pageContext
     return [
       {
-        label: "Fruit",
-        to: `${rootPath}/fruit`
+        label: "Get Started",
+        to: `${rootPath}/get-started`
       }
     ]
   }

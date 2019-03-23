@@ -1,1 +1,0 @@
-Fruit Home Page

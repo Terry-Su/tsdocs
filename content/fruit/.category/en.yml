@@ -1,7 +1,0 @@
-label: All
-foldable: true
-items: 
-  - label: Apple
-    href: /apple
-  - label: Banana
-    href: /banana

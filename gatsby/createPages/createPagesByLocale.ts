@@ -41,6 +41,7 @@ export default async function createPagesByLocale( locale: string, {
     const remarkRootName = getRemarkRootName( slug )
     const categoryYaml = categoryYamls.filter( v => v.categoryRootName === remarkRootName )[ 0 ]
     const category = categoryYaml.getCategory()
+    const categories = Array.isArray( category ) ? category : [ category ]
     const pathname = `${rootPath}${ route }`
     await createPage( {
       path     : pathname,
@@ -50,7 +51,7 @@ export default async function createPagesByLocale( locale: string, {
         slug: edge.node.fields.slug,
         ...commonData,
         pathname,
-        category,
+        categories,
       },
     } )
   }

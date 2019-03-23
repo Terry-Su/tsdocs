@@ -1,0 +1,8 @@
+- label: 分类1
+  href: /cn/category1
+  foldable: true
+  items:
+    - label: 第二级分类1
+      href: /cn/sub-category1
+- label: 分类2
+  href: /cn/category2
