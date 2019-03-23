@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 import Layout from '@/components/Layout/Layout'
 import { URL_HOME_BG } from '@/constants/urls'
+import { CLASS_EMPTY_LINK } from '@/styles/classNames'
 import {
     COLOR_PRIMARY_DARK_BACKGROUND, COLOR_PRIMARY_TEXT_UNDER_DARK, COLOR_PRIMARY_TEXT_UNDER_LIGHT
 } from '@/styles/colors'
@@ -52,7 +53,7 @@ export default class Home extends Component<Props, State> {
                 fontSize: '30px',
                 color: COLOR_PRIMARY_DARK_BACKGROUND,
               }}>{  texts.home.introduction }</p>
-              <Link to={ `${rootPath}get-started` }>
+              <Link className={ CLASS_EMPTY_LINK } to={ `${rootPath}get-started` }>
               <div style={{
                 padding: '15px 20px',
                 fontSize: '20px',

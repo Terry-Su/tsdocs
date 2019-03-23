@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import { CLASS_EMPTY_LINK } from '@/styles/classNames'
 import DefaultProps from '@/utils/DefaultProps'
 import { localeNameToDecoratedNameMap } from '@locale/decoratedNames'
 import * as namesMap from '@locale/names'
@@ -60,9 +61,15 @@ export default class LocaleSwitch extends Component<Props, State> {
   render() {
     const { locale } = this.props.pageContext
     return <StyledRoot>{
-      this.langs.map( (v, index) => <Link key={index} to={ v.link }>{ v.label }</Link> )
+      this.langs.map( (v, index) => <StyledLinkWrapper key={index}><Link className={CLASS_EMPTY_LINK} to={ v.link }>{ v.label }</Link></StyledLinkWrapper> )
     }</StyledRoot>
   }
 }
 
 const StyledRoot = styled.span``
+const StyledLinkWrapper = styled.span`
+  color: royalblue;
+  :hover {
+    text-decoration: underline;
+  }
+`

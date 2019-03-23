@@ -106,9 +106,9 @@ export default class Header extends Component<Props, State> {
 
 const StyledNavItem: any = styled.span`
   margin: 0 50px 0 0;
-  color: "#757575";
+  color: #757575!important;
   :hover {
-    color: #292929;
+    color: #292929!important;
   }
-  cursor: "pointer";
+  cursor: pointer;
 `

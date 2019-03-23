@@ -55,10 +55,10 @@ export default class Category extends Component<Props, State> {
 
   onWholeLineClick = (event) => {
     const { foldable, href } = this.props.category
-    if (foldable) {
-      this.onFoldIconClick(event)
-      return
-    }
+    // if (foldable) {
+    //   this.onFoldIconClick(event)
+    //   return
+    // }
     if (href != null) {
       navigate(href)
     } else {

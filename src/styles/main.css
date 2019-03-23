@@ -18,5 +18,5 @@ html, body {
 
 a.empty_link {
   text-decoration: none; 
-  color: none;
+  color: unset;
 }
