@@ -8,7 +8,7 @@ import { css, jsx } from '@emotion/core'
 
 class Props extends DefaultProps {
   category: CategoryType
-  level: number
+  level?: number
   paddingLeft?: number
   slug?: string
 }
@@ -53,21 +53,22 @@ export default class Category extends Component<Props, State> {
 
   onLabelClick = () => {}
 
-  onWholeLineClick = () => {
+  onWholeLineClick = (event) => {
     const { foldable, href } = this.props.category
     if (foldable) {
-      this.onFoldIconClick()
+      this.onFoldIconClick(event)
       return
     }
     if (href != null) {
       navigate(href)
     } else {
       // if no href, activate folding logic
-      foldable && this.onFoldIconClick()
+      foldable && this.onFoldIconClick(event)
     }
   }
 
-  onFoldIconClick = () => {
+  onFoldIconClick = (event) => {
+    event.stopPropagation()
     this.setState(prev => ({
       isFolded: !prev.isFolded
     }))
@@ -125,12 +126,9 @@ export default class Category extends Component<Props, State> {
           `}
           onClick={this.onWholeLineClick}
         >
-          <span onClick={this.onLabelClick}>{label} </span>
-
           {foldable && (
             <span
               css={css`
-                margin: 0 0 0 7px;
                 font-size: 12px;
               `}
               onClick={this.onFoldIconClick}
@@ -138,6 +136,9 @@ export default class Category extends Component<Props, State> {
               {isExpanding ? "∧" : "∨"}
             </span>
           )}
+          <span css={css`
+            margin: 0 0 0 7px;
+          `} onClick={this.onLabelClick}>{label} </span>
         </div>
 
         {this.isExpanding &&

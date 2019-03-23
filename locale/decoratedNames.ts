@@ -10,7 +10,7 @@ export const localeNameToDecoratedNameMap = ( () => {
   let res = {}
   for ( const key in namesMap ) {
     const value = namesMap[ key ]
-    res[ value ] = map[ value ]
+    res[ value ] = map[ value ] != null ? map[ value ] : value
   }
   return res
 } )()

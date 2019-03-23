@@ -16,11 +16,12 @@ class Props {
   enableSidebar?: boolean = false
   categoryKey?: string
   slug?: string
+  renderCategory?: Function
 }
 
 export default class Layout extends Component<Props, any> {
   render() {
-    const { enableSidebar, categoryKey, slug } = this.props
+    const { enableSidebar, categoryKey, slug, renderCategory } = this.props
     return (
       <div
         style={{
@@ -46,7 +47,7 @@ export default class Layout extends Component<Props, any> {
                 borderRight: '1px solid #e8e8e8'
               }}
             >
-              <Sidebar categoryKey={categoryKey} slug={slug} />
+              { renderCategory && renderCategory() }
             </div>
           )}
           <div

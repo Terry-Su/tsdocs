@@ -4,6 +4,7 @@ import Prism from 'prismjs'
 import React, { Component } from 'react'
 
 import { CategoryType } from '@/__typings__/Category'
+import Category from '@/components/Category/Category'
 import Layout from '@/components/Layout/Layout'
 import markdownCSS from '@/styles/emotion/markdown'
 import { STYLE_SIDEBAR_WIDTH } from '@/styles/styles'
@@ -12,7 +13,9 @@ import { css } from '@emotion/core'
 
 import TableOfContents from './TableOfContents'
 
-class Props extends DefaultProps {}
+class Props extends DefaultProps {
+  pageContext: any
+}
 
 class State {}
 
@@ -22,13 +25,17 @@ export default class DocTemplate extends Component<Props, State> {
   }
 
   render() {
+    const { category } = this.props.pageContext
     const { markdownRemark } = this.props.data
     const { html, frontmatter={}, headings, fields } = markdownRemark
     const { title, categoryKey } = frontmatter
     const { slug } =fields
 
+
     return (
-      <Layout enableSidebar={true} categoryKey={categoryKey} slug={ slug }>
+      <Layout enableSidebar={true} categoryKey={categoryKey} slug={ slug } renderCategory={
+        () => <Category category={ category }/>
+      }>
         <div
           css={css`
             box-sizing: border-box;

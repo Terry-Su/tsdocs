@@ -1,6 +1,6 @@
-- label: All
-  items: 
-    - label: Apple
-      href: /cn/apple
-    - label: Banana
-      href: /cn/banana
+label: 全部
+items: 
+  - label: 苹果
+    href: /cn/apple
+  - label: 香蕉
+    href: /cn/banana
