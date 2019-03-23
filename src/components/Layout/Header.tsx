@@ -10,18 +10,32 @@ import { css, jsx } from '@emotion/core'
 import Flex from '../Flex/Flex'
 import OuterLinkIcon from '../svg/OuterLinkIcon'
 
-const links = [{ label: "Foo", to: URL_FOO }, { label: "Bar", to: URL_BAR }]
-
 class Props {
   slug?: string
+  pageContext?: any
 }
 
 class State {}
 
+class TypeLink { 
+    label: string
+    to: string 
+}
+
 export default class Header extends Component<Props, State> {
+  get links(): TypeLink[] {
+    const { rootPath } = this.props.pageContext
+    return [
+      {
+        label: "Fruit",
+        to: `${rootPath}/fruit`
+      },
+    ]
+  }
   render() {
     const { slug } = this.props
-    const isHomePage = ! slug
+    const { rootPath = '/' } = this.props.pageContext || {}
+    const isHomePage = !slug
     return (
       <div
         style={{
@@ -30,7 +44,7 @@ export default class Header extends Component<Props, State> {
           justifyContent: "space-between",
           alignItems: "center",
           height: `${STYLE_NAV_HEIGHT}px`,
-          padding: '0 80px',
+          padding: "0 80px",
           background: "white",
           ...(isHomePage
             ? {}
@@ -39,15 +53,15 @@ export default class Header extends Component<Props, State> {
               })
         }}
       >
-        <Link className={CLASS_EMPTY_LINK} to="/">
+        <Link className={CLASS_EMPTY_LINK} to={rootPath}>
           <div
             style={{
               display: "flex",
-              alignItems: "center",
+              alignItems: "center"
             }}
           >
             {/* <img src="/svg/ts.svg" height="24px" /> */}
-            <img src={ URL_LOGO } width="36px" height="24px" />
+            <img src={URL_LOGO} width="36px" height="24px" />
             <span
               style={{
                 margin: "0 0 0 10px",
@@ -62,15 +76,15 @@ export default class Header extends Component<Props, State> {
         </Link>
 
         <div>
-          {links.map((link, index) => (
+          {this.links.map((link, index) => (
             <Link className={CLASS_EMPTY_LINK} key={index} to={link.to}>
               <span
                 css={css`
-                margin: 0 50px 0 0;
-                ${ slug === `${link.to}/` ? 'color: #111;' : 'color: #757575;' }
-                &:hover: {
-                  color: #292929;
-                }
+                  margin: 0 50px 0 0;
+                  ${slug === `${link.to}/` ? "color: #111;" : "color: #757575;"}
+                  &:hover: {
+                    color: #292929;
+                  }
                 `}
               >
                 {link.label}

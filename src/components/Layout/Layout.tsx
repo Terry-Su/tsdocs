@@ -17,6 +17,7 @@ class Props {
   categoryKey?: string
   slug?: string
   renderCategory?: Function
+  pageContext?: any
 }
 
 export default class Layout extends Component<Props, any> {
@@ -30,7 +31,7 @@ export default class Layout extends Component<Props, any> {
         }}
       >
         <HeadHelmet />
-        <Header slug={slug}/>
+        <Header slug={slug} pageContext={this.props.pageContext}/>
 
         <Flex
           height={ `calc( 100% - ${STYLE_NAV_HEIGHT}px )` }

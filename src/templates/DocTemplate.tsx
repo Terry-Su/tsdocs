@@ -33,7 +33,7 @@ export default class DocTemplate extends Component<Props, State> {
 
 
     return (
-      <Layout enableSidebar={true} categoryKey={categoryKey} slug={ slug } renderCategory={
+      <Layout enableSidebar={true} categoryKey={categoryKey} slug={ slug } pageContext={this.props.pageContext} renderCategory={
         () => <Category category={ category }/>
       }>
         <div

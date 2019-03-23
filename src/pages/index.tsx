@@ -4,9 +4,11 @@ import React from 'react'
 import Layout from '../components/Layout/Layout'
 import Home from './Home/Home'
 
-export default ({ data }) => {
+export default (props) => {
+  const { data, pageContext } = props
   const { title } = data.site.siteMetadata
-  return <Home />
+  console.log( pageContext )
+  return <Home pageContext={pageContext}/>
 }
 
 export const query = graphql`

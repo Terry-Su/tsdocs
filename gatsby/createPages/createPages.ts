@@ -50,8 +50,26 @@ module.exports = ( { graphql, actions } ) => {
           )
         } )
 
+        // # get commmon data
+        const commonData = {
+          rootPath,
+          locale,
+          decoratedLocale
+        }
+
+        // # create home page
+        await createPage( {
+          path     : rootPath,
+          component: path.resolve( __dirname, "../../src/pages/index.tsx" ),
+          context  : {
+            ...commonData
+          }
+        } )
+
+
+
         // # create markdown pages
-        const remarkEdges = result.data.allMarkdownRemark.edges.filter( v => {
+        const remarkEdges = await result.data.allMarkdownRemark.edges.filter( v => {
           const name = getFileName( v.node.fields.slug )
           return name === decoratedLocale
         } )
@@ -60,7 +78,8 @@ module.exports = ( { graphql, actions } ) => {
           remarkEdges,
           createPage,
           rootPath,
-          categoryYamlEdges
+          categoryYamlEdges,
+          commonData
         } )
       }
 

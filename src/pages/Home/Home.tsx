@@ -7,14 +7,16 @@ import {
 } from '@/styles/colors'
 import DefaultProps from '@/utils/DefaultProps'
 
-class Props extends DefaultProps {}
+class Props extends DefaultProps {
+  pageContext: any
+}
 
 class State {}
 
 export default class Home extends Component<Props, State> {
   render() {
     return (
-      <Layout>
+      <Layout pageContext={this.props.pageContext}>
         <div
           style={{
             display: "grid",

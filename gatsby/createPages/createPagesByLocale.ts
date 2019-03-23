@@ -10,6 +10,7 @@ export default async function createPagesByLocale( locale: string, {
   createPage,
   rootPath,
   categoryYamlEdges,
+  commonData = {},
 }: any ) {
   // # generate categorys
   class CategoryYamlMap {
@@ -19,7 +20,6 @@ export default async function createPagesByLocale( locale: string, {
   }
   const categoryYamls: CategoryYamlMap[] = categoryYamlEdges.map( v => {
     const { relativePath } = v.node
-    const names = relativePath.split( '/' ).filter( str  => str !== '' )
     const categoryRootName = getCategoryYamlRootName( relativePath )
     const getCategory = () => {
       const yamlFilePath = path.resolve( PATH_CONTENT, relativePath )
@@ -34,8 +34,7 @@ export default async function createPagesByLocale( locale: string, {
     return { categoryRootName, getCategory }
   } )
   
-
-  // # create every page
+  // # create every markdown page
   for ( const edge of remarkEdges ) {
     const { slug } = edge.node.fields
     const route = getRemarkRoute( slug )
@@ -48,7 +47,8 @@ export default async function createPagesByLocale( locale: string, {
       context  : {
         // Data passed to context is available in page queries as GraphQL variables.
         slug: edge.node.fields.slug,
-        category
+        ...commonData,
+        category,
       },
     } )
   }
