@@ -7,7 +7,7 @@ import { getCategoryYamlParentName, getFileName } from '../utils/index'
 import createPagesByLocale from './createPagesByLocale'
 
 module.exports = ( { graphql, actions } ) => {
-  const { createPage } = actions
+  const { createPage, deletePage } = actions
 
   return new Promise( ( resolve, reject ) => {
     graphql( `
@@ -60,7 +60,7 @@ module.exports = ( { graphql, actions } ) => {
         // # create home page
         await createPage( {
           path     : rootPath,
-          component: path.resolve( __dirname, "../../src/pages/index.tsx" ),
+          component: path.resolve( __dirname, "../../src/pages/Home/Home.tsx" ),
           context  : {
             ...commonData
           }
