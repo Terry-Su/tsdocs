@@ -32,7 +32,7 @@ export default class Layout extends Component<Props, any> {
           height: "100%"
         }}
       >
-        <HeadHelmet />
+        <HeadHelmet pageContext={this.props.pageContext}/>
         <Header slug={slug} pageContext={this.props.pageContext} />
 
        
