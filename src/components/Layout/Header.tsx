@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
 import { URL_BAR, URL_FOO, URL_LOGO, URL_TSDOCS } from '@/constants/urls'
 import { CLASS_EMPTY_LINK } from '@/styles/classNames'
@@ -8,6 +9,7 @@ import { STYLE_NAV_HEIGHT } from '@/styles/styles'
 import { css, jsx } from '@emotion/core'
 
 import Flex from '../Flex/Flex'
+import LocaleSwitch from '../LocaleSwitch/LocaleSwitch'
 import OuterLinkIcon from '../svg/OuterLinkIcon'
 
 class Props {
@@ -17,9 +19,9 @@ class Props {
 
 class State {}
 
-class TypeLink { 
-    label: string
-    to: string 
+class TypeLink {
+  label: string
+  to: string
 }
 
 export default class Header extends Component<Props, State> {
@@ -29,12 +31,12 @@ export default class Header extends Component<Props, State> {
       {
         label: "Fruit",
         to: `${rootPath}/fruit`
-      },
+      }
     ]
   }
   render() {
     const { slug } = this.props
-    const { rootPath = '/' } = this.props.pageContext || {}
+    const { rootPath = "/" } = this.props.pageContext || {}
     const isHomePage = !slug
     return (
       <div
@@ -78,35 +80,35 @@ export default class Header extends Component<Props, State> {
         <div>
           {this.links.map((link, index) => (
             <Link className={CLASS_EMPTY_LINK} key={index} to={link.to}>
-              <span
+              <StyledNavItem
                 css={css`
-                  margin: 0 50px 0 0;
                   ${slug === `${link.to}/` ? "color: #111;" : "color: #757575;"}
-                  &:hover: {
-                    color: #292929;
-                  }
                 `}
               >
                 {link.label}
-              </span>
+              </StyledNavItem>
             </Link>
           ))}
-          <a
-            className={CLASS_EMPTY_LINK}
-            css={{
-              color: "#757575",
-              "&:hover": {
-                color: "#292929"
-              },
-              cursor: "pointer"
-            }}
-            href={URL_TSDOCS}
-          >
-            Github
+          <StyledNavItem>
+            <a className={CLASS_EMPTY_LINK} href={URL_TSDOCS}>
+              Github
+            </a>
             <OuterLinkIcon />
-          </a>
+          </StyledNavItem>
+          <StyledNavItem>
+            <LocaleSwitch pageContext={ this.props.pageContext } />
+          </StyledNavItem>
         </div>
       </div>
     )
   }
 }
+
+const StyledNavItem: any = styled.span`
+  margin: 0 50px 0 0;
+  color: "#757575";
+  :hover {
+    color: #292929;
+  }
+  cursor: "pointer";
+`

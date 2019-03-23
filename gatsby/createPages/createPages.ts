@@ -62,7 +62,8 @@ module.exports = ( { graphql, actions } ) => {
           path     : rootPath,
           component: path.resolve( __dirname, "../../src/pages/Home/Home.tsx" ),
           context  : {
-            ...commonData
+            ...commonData,
+            pathname: rootPath,
           }
         } )
 

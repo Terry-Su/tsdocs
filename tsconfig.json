@@ -1,6 +1,7 @@
 {
 	"include": [
 		"src/**/*",
+		"locale/**/*",
 		"__template__/**/*"
 	],
 	"exclude": [
@@ -12,7 +13,10 @@
     "paths": {
       "@/*": [
         "./src/*",
-      ],
+			],
+			"@locale/*": [
+				"./locale/*"
+			]
     },
 		"module": "commonjs",
 		"target": "es5",

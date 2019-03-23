@@ -11,7 +11,8 @@ module.exports = ( {
     resolve: {
       extensions: [ ".ts", ".tsx", ".js" ],
       alias     : {
-        '@': path.resolve( __dirname, '../src' )
+        '@'      : path.resolve( __dirname, '../src' ),
+        '@locale': path.resolve( __dirname, '../locale' ),
       }
     }
   } )
