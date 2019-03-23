@@ -6,10 +6,10 @@ const localeMap = {
   [ EN ]   : en,
   [ ZH_CN ]: zh_CN
 }
-export default function translate( locale: string, key: string ) {
+export default function translate( locale: string, key: string = '' ) {
   try {
     let res = localeMap[ locale ]
-    key.split( '.' ).forEach( str => {
+    key.split( '.' ).filter( v => v !== '' ).forEach( str => {
       res = res[ str ]
     } )
     return res != null ? res : key

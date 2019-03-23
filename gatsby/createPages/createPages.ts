@@ -2,6 +2,7 @@ import path from 'path'
 
 import { localeNameToDecoratedNameMap } from '../../locale/decoratedNames'
 import * as localeNamesMap from '../../locale/names'
+import translate from '../../locale/translate'
 import { CATEGORY_FOLDER_NAME } from '../constants'
 import { getCategoryYamlParentName, getFileName } from '../utils/index'
 import createPagesByLocale from './createPagesByLocale'
@@ -38,6 +39,7 @@ module.exports = ( { graphql, actions } ) => {
 
       for ( const locale of Object.values( localeNamesMap ) ) {
         const decoratedLocale = localeNameToDecoratedNameMap[ locale ]
+        const t = ( key = '' ) => translate( locale, key )
         const rootPath =
           locale === localeNamesMap.EN ? "/" : `/${decoratedLocale}/`
 
@@ -54,7 +56,8 @@ module.exports = ( { graphql, actions } ) => {
         const commonData = {
           rootPath,
           locale,
-          decoratedLocale
+          decoratedLocale,
+          texts: t()
         }
 
         // # create home page

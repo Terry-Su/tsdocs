@@ -20,7 +20,9 @@
       "name": "Launch Program",
       "args": [
         "node_modules/gatsby/dist/bin/gatsby.js",
-        "develop"
+        "develop",
+        "-p",
+        "8080",
       ],
       "runtimeArgs": [
         "-r", 

@@ -26,11 +26,11 @@ class TypeLink {
 
 export default class Header extends Component<Props, State> {
   get links(): TypeLink[] {
-    const { rootPath } = this.props.pageContext
+    const { rootPath, texts} = this.props.pageContext
     return [
       {
-        label: "Get Started",
-        to: `${rootPath}/get-started`
+        label: texts.getStarted,
+        to: `${rootPath}get-started`
       }
     ]
   }

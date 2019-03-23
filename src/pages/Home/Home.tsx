@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React, { Component } from 'react'
 
 import Layout from '@/components/Layout/Layout'
@@ -15,6 +16,7 @@ class State {}
 
 export default class Home extends Component<Props, State> {
   render() {
+    const { texts = '', rootPath } = this.props.pageContext
     return (
       <Layout pageContext={this.props.pageContext}>
         <div
@@ -49,14 +51,17 @@ export default class Home extends Component<Props, State> {
               <p style={{
                 fontSize: '30px',
                 color: COLOR_PRIMARY_DARK_BACKGROUND,
-              }}>A Highway to Build Static Docs Website</p>
+              }}>{  texts.home.introduction }</p>
+              <Link to={ `${rootPath}get-started` }>
               <div style={{
                 padding: '15px 20px',
                 fontSize: '20px',
                 borderRadius: '3px',
                 color: 'rgba(255, 255, 255, 0.9)',
                 background: COLOR_PRIMARY_TEXT_UNDER_DARK,
-              }}>Get Started</div>
+                cursor: 'pointer',
+              }}>{ texts.getStarted }</div>
+              </Link>
             </div>
           </div>
         </div>

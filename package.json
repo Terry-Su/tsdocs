@@ -1,13 +1,19 @@
 {
   "name": "tsdocs",
   "scripts": {
-    "develop": "cross-env TS_NODE_PROJECT=tsconfig.node.json node -r ts-node/register node_modules/gatsby/dist/bin/gatsby.js develop",
+    "develop": "cross-env TS_NODE_PROJECT=tsconfig.node.json nodemon --verbose -e ts,tsx --exec node -r ts-node/register node_modules/gatsby/dist/bin/gatsby.js develop -p 8081",
     "start": "npm run develop",
     "build": "gatsby build --prefix-paths",
     "build-site": "gatsby build --prefix-paths",
     "site": "browser-sync start --server --watch --files tsdocs-site/**/* --startPath /tsdocs-site",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "nodemonConfig": {
+    "watch": [
+      "locale/**/*",
+      "gatsby/**/*"
+    ]
   },
   "dependencies": {
     "gatsby": "^2.0.33",
@@ -39,6 +45,7 @@
     "js-yaml": "^3.13.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
     "prismjs": "^1.15.0",
     "react-helmet": "^5.2.0",
     "react-jss": "^10.0.0-alpha.3",
