@@ -6,8 +6,7 @@
     "build": "gatsby build --prefix-paths",
     "build-site": "gatsby build --prefix-paths",
     "site": "browser-sync start --server --watch --files tsdocs-site/**/* --startPath /tsdocs-site",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "serve": "gatsby serve"
   },
   "nodemonConfig": {
     "watch": [
